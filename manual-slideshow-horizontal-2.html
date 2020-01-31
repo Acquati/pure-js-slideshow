@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+	html,
+	body {
+		margin: 0;
+	}
+
+	.container {
+		margin: 0 auto;
+		max-width: 1000px;
+	}
+
+	.slide-show {
+		padding-top: 56.25%;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.slide {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-top: 56.25%;
+		width: 100%;
+		transition: all 1s ease;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.previous-slide {
+		display: block;
+		transform: translateX(-100%);
+	}
+
+	.current-slide {
+		display: block;
+		transform: translateX(0%);
+	}
+
+	.next-slide {
+		display: block;
+		transform: translateX(100%);
+	}
+
+	.w3-button {
+		border: none;
+		display: inline-block;
+		padding: 8px 16px;
+		vertical-align: middle;
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		background-color: inherit;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+
+	.w3-black {
+		color: #fff;
+		background-color: #000;
+	}
+
+	.w3-button:hover {
+		color: #000;
+		background-color: #ccc;
+	}
+</style>
+
+<body>
+
+	<div class="container">
+		<div class="slide-show">
+			<div class="slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide" style="background-image: url('img_mountains.jpg')"></div>
+			<div class="slide" style="background-image: url('img_snowtops.jpg')"></div>
+			<div class="slide" style="background-image: url('img_lights.jpg')"></div>
+		</div>
+
+		<button class="w3-button w3-black w3-display-left" onclick="previousSlide()">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="nextSlide()">&#10095;</button>
+	</div>
+
+	<script src="./script.js"></script>
+</body>
+
+</html>

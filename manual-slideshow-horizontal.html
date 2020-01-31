@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+	html,
+	body {
+		margin: 0;
+	}
+
+	.container {
+		margin: 0 auto;
+		max-width: 1000px;
+	}
+
+	.slide-show {
+		padding-top: 56.25%;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.slide {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-top: 56.25%;
+		width: 100%;
+		transition: all 1s ease;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	
+	.previous-slide {
+		display: block;
+		transform: translateX(-100%);
+	}
+
+	.current-slide {
+		display: block;
+		transform: translateX(0%);
+	}
+
+	.next-slide {
+		display: block;
+		transform: translateX(100%);
+	}
+
+	.w3-button {
+		border: none;
+		display: inline-block;
+		padding: 8px 16px;
+		vertical-align: middle;
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		background-color: inherit;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+
+	.w3-black {
+		color: #fff;
+		background-color: #000;
+	}
+
+	.w3-button:hover {
+		color: #000;
+		background-color: #ccc;
+	}
+</style>
+
+<body>
+
+	<div class="container">
+		<div class="slide-show">
+			<div class="slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide" style="background-image: url('img_lights.jpg')"></div>
+		</div>
+
+		<button class="w3-button w3-black w3-display-left" onclick="previousSlide()">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="nextSlide()">&#10095;</button>
+	</div>
+
+	<script>
+		var vetor = ['a', 'b', 'c', 'd'];
+
+
+		console.log(vetor);
+
+		x = vetor.shift();
+		vetor.push(x);
+
+		console.log(vetor);
+		console.log(x);
+
+		if (vetor.length) {
+			var fila = [];
+
+			if (vetor.length == 1) {
+				fila.vetor[0];
+			} else if (vetor.length == 2) {
+				fila.push(vetor[0]);
+				fila.push(vetor[1]);
+				fila.push(vetor[0]);
+				fila.push(vetor[1]);				
+			} else if (vetor.length == 3) {
+				for (let i = 0; i < vetor.length; i++) {
+					const element = vetor[i];					
+				}
+			}
+		}
+
+			for (let i = 0; i < vetor.length; i++) {
+
+				const element = vetor[i];
+				
+			}
+
+		console.log(vetor);
+
+		var slides = document.getElementsByClassName('slide');
+		console.log(slides);
+		slides.shift();
+		console.log(slides);
+
+		for (let i = 0; i < slides.length; i++) {
+			if (i == 0) {
+				slides[i].classList.toggle('current-slide');
+			}
+			if (i == 1) {
+				slides[i].classList.toggle('next-slide');
+			}
+			if (i == 2) {
+				slides[i].classList.toggle('previous-slide');
+			}
+		}
+
+		var currentSlideIndex = 0;
+		function nextSlide() {
+			if (currentSlideIndex == 0) {
+				for (let i = 0; i < slides.length; i++) {
+					if (i == 0) {
+						slides[i].classList.remove('current-slide');
+						slides[i].classList.toggle('previous-slide');
+					}
+					if (i == 1) {
+						slides[i].classList.remove('next-slide');
+						slides[i].classList.toggle('current-slide');
+					}
+				};
+				
+				currentSlideIndex++;
+			} else if (currentSlideIndex == 1) {
+				for (let i = 0; i < slides.length; i++) {
+					if (i == 0) {
+						slides[i].classList.remove('previous-slide');
+						// slides[i].classList.toggle('next-slide');
+						// slides[i].classList.remove('next-slide');
+						slides[i].classList.toggle('current-slide');
+					}
+					if (i == 1) {
+						slides[i].classList.remove('current-slide');
+						slides[i].classList.toggle('previous-slide');
+					}
+				};
+				
+				currentSlideIndex--;
+			}
+		}
+	</script>
+</body>
+
+</html>

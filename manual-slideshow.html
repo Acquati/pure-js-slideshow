@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<style>
+	.w3-center {
+		text-align: center !important;
+	}
+
+	.w3-content {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.w3-display-container {
+		position: relative;
+	}
+
+	.slider {
+		display: none;
+		width: 100%;
+	}
+
+	.w3-button {
+		border: none;
+		display: inline-block;
+		padding: 8px 16px;
+		vertical-align: middle;
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		background-color: inherit;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+
+	.w3-button {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.w3-button:hover {
+		color: #000 !important;
+		background-color: #ccc !important;
+	}
+
+	.w3-button:disabled {
+		cursor: not-allowed;
+		opacity: 0.3;
+	}
+
+	.w3-black,
+	.w3-hover-black:hover {
+		color: #fff !important;
+		background-color: #000 !important;
+	}
+
+	.w3-display-left {
+		position: absolute;
+		top: 50%;
+		left: 0%;
+		transform: translate(0%, -50%);
+		-ms-transform: translate(-0%, -50%);
+	}
+
+	.w3-display-right {
+		position: absolute;
+		top: 50%;
+		right: 0%;
+		transform: translate(0%, -50%);
+		-ms-transform: translate(0%, -50%);
+	}
+</style>
+
+<body>
+
+	<h2 class="w3-center">Manual Slideshow</h2>
+
+	<div class="w3-content w3-display-container">
+		<img class="slider slider1" src="img_snowtops.jpg">
+		<img class="slider slider1" src="img_lights.jpg">
+		<img class="slider slider1" src="img_mountains.jpg">
+		<img class="slider slider1" src="img_forest.jpg">
+
+		<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 1)">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 1)">&#10095;</button>
+	</div>
+
+	<div class="w3-content w3-display-container">
+		<img class="slider slider2" src="img_snowtops.jpg">
+		<img class="slider slider2" src="img_lights.jpg">
+		<img class="slider slider2" src="img_mountains.jpg">
+		<img class="slider slider2" src="img_forest.jpg">
+
+		<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 2)">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 2)">&#10095;</button>
+	</div>
+
+	<div class="w3-content w3-display-container">
+		<img class="slider slider3" src="img_snowtops.jpg">
+		<img class="slider slider3" src="img_lights.jpg">
+		<img class="slider slider3" src="img_mountains.jpg">
+		<img class="slider slider3" src="img_forest.jpg">
+
+		<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 3)">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 3)">&#10095;</button>
+	</div>
+
+	<script>
+		function Slider(className) {
+			this.className = className;
+			this.index = 1;
+		}
+
+		if (document.getElementsByClassName("slider1").length) {
+			var Sliders = [];
+			let i = 1;
+
+			do {
+				if (document.getElementsByClassName("slider" + i).length) {
+					Sliders[i - 1] = new Slider('slider' + i);
+					showDivs(Sliders[i - 1]);
+					i++;
+				} else {
+					console.log('blau');
+					i = false;
+				}
+			} while (i);
+		}
+
+		function plusDivs(slideChange, index) {
+			Sliders[index -1].index += slideChange;
+			showDivs(Sliders[index -1]);
+		}
+
+		function showDivs(slider) {
+			var collection = document.getElementsByClassName(slider.className);
+
+			if (slider.index > collection.length) {
+				slider.index = 1;
+			}
+
+			if (slider.index < 1) {
+				slider.index = collection.length;
+			}
+
+			for (let i = 0; i < collection.length; i++) {
+				collection[i].style.display = "none";
+			}
+
+			collection[slider.index - 1].style.display = "block";
+		}
+	</script>
+
+</body>
+
+</html>
