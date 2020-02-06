@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>Pure JS Slideshow</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -27,15 +27,9 @@
 		left: 0;
 		padding-top: 56.25%;
 		width: 100%;
-		transition: transform 1s;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
-	}
-
-	.previous-slide {
-		display: block;
-		transform: translateX(-100%);
 	}
 
 	.current-slide {
@@ -43,12 +37,39 @@
 		transform: translateX(0%);
 	}
 
-	.next-slide {
+	.previous-slide {
 		display: block;
-		transform: translateX(100%);
+		animation-name: left-to-right;
+		animation-duration: 1s;
 	}
 
-	.w3-button {
+	@keyframes left-to-right {
+		from {
+			transform: translateX(-100%);
+		}
+
+		to {
+			transform: translateX(0%);
+		}
+	}
+
+	.next-slide {
+		display: block;
+		animation-name: right-to-left;
+		animation-duration: 1s;
+	}
+
+	@keyframes right-to-left {
+		from {
+			transform: translateX(100%);
+		}
+
+		to {
+			transform: translateX(0%);
+		}
+	}
+
+	.button {
 		border: none;
 		display: inline-block;
 		padding: 8px 16px;
@@ -62,12 +83,12 @@
 		white-space: nowrap;
 	}
 
-	.w3-black {
+	.black {
 		color: #fff;
 		background-color: #000;
 	}
 
-	.w3-button:hover {
+	.button:hover {
 		color: #000;
 		background-color: #ccc;
 	}
@@ -77,31 +98,31 @@
 
 	<div class="container">
 		<div class="slide-show">
-			<div class="slide slide1 current-slide" style="background-image: url('img_forest.jpg')"></div>
-			<div class="slide slide1" style="background-image: url('img_mountains.jpg')"></div>
-			<div class="slide slide1" style="background-image: url('img_snowtops.jpg')"></div>
-			<div class="slide slide1" style="background-image: url('img_lights.jpg')"></div>
+			<div class="slide1 slide current-slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide1 slide" style="background-image: url('img_mountains.jpg')"></div>
+			<div class="slide1 slide" style="background-image: url('img_snowtops.jpg')"></div>
+			<div class="slide1 slide" style="background-image: url('img_lights.jpg')"></div>
 		</div>
 
-		<button class="slide1-button w3-button w3-black w3-display-left" onclick="previousSlide(1)">&#10094;</button>
-		<button class="slide1-button w3-button w3-black w3-display-right" onclick="nextSlide(1)">&#10095;</button>
+		<button class="slide1-button button black" onclick="previousSlide(1)">&#10094;</button>
+		<button class="slide1-button button black" onclick="nextSlide(1)">&#10095;</button>
 
 		<div class="slide-show">
-			<div class="slide slide2 current-slide" style="background-image: url('img_forest.jpg')"></div>
-			<div class="slide slide2" style="background-image: url('img_mountains.jpg')"></div>
-			<div class="slide slide2" style="background-image: url('img_snowtops.jpg')"></div>
-			<div class="slide slide2" style="background-image: url('img_lights.jpg')"></div>
+			<div class="slide2 slide current-slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide2 slide" style="background-image: url('img_mountains.jpg')"></div>
+			<div class="slide2 slide" style="background-image: url('img_snowtops.jpg')"></div>
+			<div class="slide2 slide" style="background-image: url('img_lights.jpg')"></div>
 		</div>
 
 		<div class="slide-show">
-			<div class="slide slide3 current-slide" style="background-image: url('img_forest.jpg')"></div>
-			<div class="slide slide3" style="background-image: url('img_mountains.jpg')"></div>
-			<div class="slide slide3" style="background-image: url('img_snowtops.jpg')"></div>
-			<div class="slide slide3" style="background-image: url('img_lights.jpg')"></div>
+			<div class="slide3 slide current-slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide3 slide" style="background-image: url('img_mountains.jpg')"></div>
+			<div class="slide3 slide" style="background-image: url('img_snowtops.jpg')"></div>
+			<div class="slide3 slide" style="background-image: url('img_lights.jpg')"></div>
 		</div>
 
-		<button class="slide2-button slide3-button w3-button w3-black w3-display-left" onclick="previousSlide(2); previousSlide(3);">&#10094;</button>
-		<button class="slide2-button slide3-button w3-button w3-black w3-display-right" onclick="nextSlide(2); nextSlide(3);">&#10095;</button>
+		<button class="slide2-button slide3-button button black" onclick="previousSlide(2); nextSlide(3);">&#10094;</button>
+		<button class="slide2-button slide3-button button black" onclick="nextSlide(2); previousSlide(3);">&#10095;</button>
 	</div>
 
 	<script src="./script-dinamic.js"></script>
