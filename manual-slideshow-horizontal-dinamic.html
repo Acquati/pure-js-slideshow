@@ -77,14 +77,31 @@
 
 	<div class="container">
 		<div class="slide-show">
-			<div class="slide" style="background-image: url('img_forest.jpg')"></div>
-			<div class="slide" style="background-image: url('img_mountains.jpg')"></div>
-			<div class="slide" style="background-image: url('img_snowtops.jpg')"></div>
-			<div class="slide" style="background-image: url('img_lights.jpg')"></div>
+			<div class="slide slide1 current-slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide slide1" style="background-image: url('img_mountains.jpg')"></div>
+			<div class="slide slide1" style="background-image: url('img_snowtops.jpg')"></div>
+			<div class="slide slide1" style="background-image: url('img_lights.jpg')"></div>
 		</div>
 
-		<button class="w3-button w3-black w3-display-left" onclick="previousSlide()">&#10094;</button>
-		<button class="w3-button w3-black w3-display-right" onclick="nextSlide()">&#10095;</button>
+		<button class="slide1-button w3-button w3-black w3-display-left" onclick="previousSlide(1)">&#10094;</button>
+		<button class="slide1-button w3-button w3-black w3-display-right" onclick="nextSlide(1)">&#10095;</button>
+
+		<div class="slide-show">
+			<div class="slide slide2 current-slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide slide2" style="background-image: url('img_mountains.jpg')"></div>
+			<div class="slide slide2" style="background-image: url('img_snowtops.jpg')"></div>
+			<div class="slide slide2" style="background-image: url('img_lights.jpg')"></div>
+		</div>
+
+		<div class="slide-show">
+			<div class="slide slide3 current-slide" style="background-image: url('img_forest.jpg')"></div>
+			<div class="slide slide3" style="background-image: url('img_mountains.jpg')"></div>
+			<div class="slide slide3" style="background-image: url('img_snowtops.jpg')"></div>
+			<div class="slide slide3" style="background-image: url('img_lights.jpg')"></div>
+		</div>
+
+		<button class="slide2-button slide3-button w3-button w3-black w3-display-left" onclick="previousSlide(2); previousSlide(3);">&#10094;</button>
+		<button class="slide2-button slide3-button w3-button w3-black w3-display-right" onclick="nextSlide(2); nextSlide(3);">&#10095;</button>
 	</div>
 
 	<script src="./script-dinamic.js"></script>
