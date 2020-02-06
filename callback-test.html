@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		console.log('é isso ai');
+
+
+		function greeting(name) {
+			console.log('greeting');
+			console.log(name);
+			// alert('Hello ' + name);
+		}
+
+		function processUserInput(callback) {
+			// var name = prompt('Please enter your name.');
+			console.log('processUserInput');
+
+			setTimeout(function () {
+				var name = 'roberto';
+				callback(name);
+			}, 1000);
+		}
+
+		processUserInput(greeting);
+	</script>
+</body>
+
+</html>
